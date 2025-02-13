@@ -17,9 +17,12 @@ from dotenv import load_dotenv
 # os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 
 # Access Streamlit Secrets directly
-google_api_key = st.secrets["GOOGLE_API_KEY"]
-groq_api_key = st.secrets["GROQ_API_KEY"]
-hf_token = st.secrets["HF_TOKEN"]
+google_api_key = st.secrets["general"]["GOOGLE_API_KEY"]
+groq_api_key = st.secrets["general"]["GROQ_API_KEY"]
+hf_token = st.secrets["general"]["HF_TOKEN"]
+# Access secrets
+
+st.write(f"Your API Key: {api_key}")  # Avoid displaying secrets in production
 
 # Ensure they're available as environment variables if needed elsewhere in the app
 os.environ["GOOGLE_API_KEY"] = google_api_key
