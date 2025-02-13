@@ -4,8 +4,8 @@ import numpy as np
 import random
 
 # Load the model and class labels
-model = load_model(r"assets\new-model-with-wheat\keras_model.h5", compile=False)
-class_names = open(r"assets\new-model-with-wheat\labels.txt", "r").readlines()
+model = load_model(r"assets/new-model-with-wheat/keras_model.h5", compile=False)
+class_names = open(r"assets/new-model-with-wheat/labels.txt", "r").readlines()
 
 # Define remedy pairs: (remedy in English, remedy translation in Marathi)
 remedy_pairs = [
