@@ -10,11 +10,21 @@ from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
-google_api_key = os.getenv("GOOGLE_API_KEY")
-groq_api_key = os.getenv("GROQ_API_KEY")
+# load_dotenv()
+# google_api_key = os.getenv("GOOGLE_API_KEY")
+# groq_api_key = os.getenv("GROQ_API_KEY")
+# os.environ["GOOGLE_API_KEY"] = google_api_key
+# os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
+
+
+# Access Streamlit Secrets directly
+google_api_key = st.secrets["GOOGLE_API_KEY"]
+groq_api_key = st.secrets["GROQ_API_KEY"]
+hf_token = st.secrets["HF_TOKEN"]
+
+# Ensure they're available as environment variables if needed elsewhere in the app
 os.environ["GOOGLE_API_KEY"] = google_api_key
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
+os.environ["HF_TOKEN"] = hf_token
 
 # Initialize LLM
 llm_llama3 = ChatGroq(
