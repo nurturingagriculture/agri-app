@@ -22,7 +22,7 @@ groq_api_key = st.secrets["general"]["GROQ_API_KEY"]
 hf_token = st.secrets["general"]["HF_TOKEN"]
 # Access secrets
 
-st.write(f"Your API Key: {api_key}")  # Avoid displaying secrets in production
+
 
 # Ensure they're available as environment variables if needed elsewhere in the app
 os.environ["GOOGLE_API_KEY"] = google_api_key
