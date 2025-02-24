@@ -2,9 +2,22 @@ from keras.models import load_model  # TensorFlow is required for Keras to work
 from PIL import Image, ImageOps  # Install pillow instead of PIL
 import numpy as np
 import random
+import requests
 
 # Load the model and class labels
-model = load_model(r"assets/new-model-with-wheat/keras_model.h5", compile=False)
+# model = load_model(r"assets/new-model-with-wheat/keras_model.h5", compile=False)
+# Define the raw URL to download the model
+model_url = "https://github.com/nurturingagriculture/agri-app/raw/main/modules/keras_model.h5"
+model_path = "keras_model.h5"
+
+# Download the model if it doesn't exist
+if not os.path.exists(model_path):
+    response = requests.get(model_url)
+    with open(model_path, "wb") as file:
+        file.write(response.content)
+
+# Load the model
+model = load_model(model_path, compile=False)
 class_names = open(r"assets/new-model-with-wheat/labels.txt", "r").readlines()
 
 # Define remedy pairs: (remedy in English, remedy translation in Marathi)
