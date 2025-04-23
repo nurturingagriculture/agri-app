@@ -1,7 +1,7 @@
-0 Apple Healthy Leaf  
-1 Apple Rust Leaf  
-2 Potato Healthy Leaf  
-3 Potato Late Blight Leaf  
-4 Tomato Healthy Leaf  
-5 Tomato Late Blight Leaf  
-
+0 Tomato_Healthy
+1 Tomato_Target_Spot
+2 Tomato_Leaf_Mold
+3 Wheat_Healthy
+4 Wheat_Black_Rust
+5 Wheat_Mite
+6 Wheat_Tan_Spot
