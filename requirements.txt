@@ -1,13 +1,9 @@
 streamlit
-openai
 tensorflow==2.16.1
 pillow
 numpy
 pandas
 requests
-groq
-
-
 faiss-cpu
 langchain
 python-dotenv
@@ -16,6 +12,4 @@ langchain_groq
 langchain-community
 PyPDF2
 protobuf==3.19.5
-
-langchain_community
 beautifulsoup4 
