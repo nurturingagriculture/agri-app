@@ -17,7 +17,7 @@ os.environ["GOOGLE_API_KEY"] = google_api_key
 
 # Initialize LLM
 llm_llama3 = ChatGroq(
-    model="llama3-8b-8192",
+    model="llama3.1-8b-8192",
     temperature=0,
     api_key=groq_api_key,
 )
