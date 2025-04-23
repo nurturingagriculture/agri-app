@@ -3,42 +3,30 @@ import streamlit as st
 import os
 from langchain import LLMChain
 from langchain.prompts import PromptTemplate
-from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
 from langchain.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
-
-# Load environment variables
-# load_dotenv()
-# google_api_key = os.getenv("GOOGLE_API_KEY")
-# groq_api_key = os.getenv("GROQ_API_KEY")
-# os.environ["GOOGLE_API_KEY"] = google_api_key
-# os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
-
 
 # Access Streamlit Secrets directly
 google_api_key = st.secrets["GOOGLE_API_KEY"]
 groq_api_key = st.secrets["GROQ_API_KEY"]
-hf_token = st.secrets["HF_TOKEN"]
+
 
 # Ensure they're available as environment variables if needed elsewhere in the app
 os.environ["GOOGLE_API_KEY"] = google_api_key
-os.environ["HF_TOKEN"] = hf_token
+
 
 # Initialize LLM
 llm_llama3 = ChatGroq(
-    # model="llama3-8b-8192",
-    model="llama-3.3-70b-versatile",
+    model="llama3-8b-8192",
     temperature=0,
     api_key=groq_api_key,
 )
 
 # Initialize embeddings
-embeddings = HuggingFaceInferenceAPIEmbeddings(
-    api_key=os.environ["HF_TOKEN"],
-    model_name="sentence-transformers/all-MiniLM-l6-v2",
-)
+embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
+
 
 # Load FAISS vector store
 def load_vectordb():
